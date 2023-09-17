@@ -13,7 +13,7 @@ class ProductController extends BaseController
     }
     public function arkieno()
     {
-        return view('products');
+        return view('add');
 
     }
     public function index()
