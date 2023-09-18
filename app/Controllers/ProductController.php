@@ -18,12 +18,23 @@ class ProductController extends BaseController
     $result = $this->productModel->delete($id);
 
     if ($result) {
-     
+    
         return redirect()->to('/product');
     } else {
         return redirect()->back()->with('error', 'Failed to delete the product.');
     }
 }
+public function edit($id)
+{
+    $data = [
+        'products' => $this->productModel->findAll(),
+        'pro' => $this->productModel->where('id', $id)->first(),
+    ];
+
+    return view('add', $data);
+}
+
+
 
 
     public function save()
@@ -39,10 +50,10 @@ class ProductController extends BaseController
         $inserted = $this->productModel->insert($data);
 
         if ($inserted) {
-            // Product successfully inserted
+        
             return redirect()->to('/product');
         } else {
-            // Insertion failed
+            
             return redirect()->back()->with('error', 'Failed to save the product.');
         }
     }
