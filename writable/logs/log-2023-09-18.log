@@ -10,3 +10,11 @@ in APPPATH\Views\add.php on line 40.
  8 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
 10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\liquigan\\public\\index.php')
+CRITICAL - 2023-09-18 01:10:47 --> Undefined property: App\Controllers\ProductController::$product
+in APPPATH\Controllers\ProductController.php on line 57.
+ 1 APPPATH\Controllers\ProductController.php(57): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\ProductController::$product', 'C:\\laragon\\www\\liquigan\\app\\Controllers\\ProductController.php', 57)
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\ProductController->arkieno()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductController))
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\laragon\\www\\liquigan\\public\\index.php')

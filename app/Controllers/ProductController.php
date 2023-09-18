@@ -6,17 +6,26 @@ use App\Controllers\BaseController;
 
 class ProductController extends BaseController
 {
-    private $product;
+    private $productModel;
 
     public function __construct()
     {
-        $this->product = new \App\Models\ProductModel();
+        $this->productModel = new \App\Models\ProductModel();
     }
+
     public function delete($id)
-    {
-        $this->product->delete($id);
+{
+    $result = $this->productModel->delete($id);
+
+    if ($result) {
+     
         return redirect()->to('/product');
+    } else {
+        return redirect()->back()->with('error', 'Failed to delete the product.');
     }
+}
+
+
     public function save()
     {
         $data = [
@@ -26,9 +35,16 @@ class ProductController extends BaseController
             'Quantity' => $this->request->getVar('Quantity'),
             'Create_at' => $this->request->getVar('Create_at'),
         ];
-        $this->product->save($data);
-        return redirect()->to('/product');
+        
+        $inserted = $this->productModel->insert($data);
 
+        if ($inserted) {
+            // Product successfully inserted
+            return redirect()->to('/product');
+        } else {
+            // Insertion failed
+            return redirect()->back()->with('error', 'Failed to save the product.');
+        }
     }
 
     public function product($product)
@@ -38,7 +54,7 @@ class ProductController extends BaseController
 
     public function arkieno()
     {
-        $data ['products'] = $this->product->findAll();
+        $data['products'] = $this->productModel->findAll();
         return view('add', $data);
     }
 
