@@ -23,8 +23,11 @@
             <input type="datetime-local" name="Create_at" placeholder="Create_at">
             <br>
             <input type="submit" value="save">
+            
 
 </form>
+
+
         
     <h1>Prod List</h1>
     <table border = "1">
